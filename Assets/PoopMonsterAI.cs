@@ -15,7 +15,7 @@ public class PoopMonsterAI : MonoBehaviour
     public Transform firePoint;
 
     [Header("Animator")]
-    [SerializeField] private Animator animator;  // Assign manually in Inspector
+    [SerializeField] private Animator animator;
 
     private Transform player;
     private NavMeshAgent agent;
@@ -24,27 +24,18 @@ public class PoopMonsterAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.stoppingDistance = attackRange - 0.1f;  // Stop just before attack range
+        agent.stoppingDistance = attackRange - 0.1f;
 
         if (animator == null)
-        {
-            Debug.LogError("Animator not assigned. Assign it in the Inspector.");
-        }
+            Debug.LogError("Animator not assigned!");
         else if (animator.applyRootMotion)
-        {
-            Debug.LogWarning("Animator root motion is enabled. Disabling it.");
             animator.applyRootMotion = false;
-        }
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
-        {
             player = playerObj.transform;
-        }
         else
-        {
-            Debug.LogError("Player not found. Tag your player as 'Player'.");
-        }
+            Debug.LogError("Player not found! Tag it as 'Player'");
     }
 
     void Update()
@@ -52,31 +43,31 @@ public class PoopMonsterAI : MonoBehaviour
         if (player == null || animator == null) return;
 
         float distance = Vector3.Distance(transform.position, player.position);
-
-        // Debug line
         Debug.DrawLine(transform.position, player.position, Color.red);
 
         if (isAttacking)
         {
-            agent.SetDestination(transform.position); // Stop moving
+            agent.SetDestination(transform.position); // Hold still during attack
             FaceTarget();
             return;
         }
 
-        if (distance <= detectionRadius && distance > attackRange)
+        if (distance <= detectionRadius)
         {
-            ChasePlayer();
-        }
-        else if (distance <= attackRange)
-        {
-            StartCoroutine(AttackPlayer());
+            if (distance <= attackRange)
+            {
+                StartCoroutine(AttackPlayer());
+            }
+            else
+            {
+                ChasePlayer();
+            }
         }
         else
         {
             Idle();
         }
 
-        // Set animator speed for blend trees or locomotion
         animator.SetFloat("speed", agent.velocity.magnitude);
     }
 
@@ -93,7 +84,7 @@ public class PoopMonsterAI : MonoBehaviour
     {
         if (!agent.isOnNavMesh) return;
 
-        agent.SetDestination(transform.position); // Stay in place
+        agent.SetDestination(transform.position);
         animator.SetBool("chase", false);
         animator.SetBool("attack", false);
     }
@@ -114,14 +105,13 @@ public class PoopMonsterAI : MonoBehaviour
     {
         isAttacking = true;
 
-        if (!agent.isOnNavMesh) yield break;
+        agent.SetDestination(transform.position); // Stop moving
+        FaceTarget();
 
         animator.SetBool("attack", true);
         animator.SetBool("chase", false);
-        agent.SetDestination(transform.position); // Hold still
-        FaceTarget();
 
-        yield return new WaitForSeconds(0.3f); // Sync with animation
+        yield return new WaitForSeconds(0.3f); // Sync with attack animation
 
         if (poopPrefab && firePoint)
         {
@@ -134,7 +124,9 @@ public class PoopMonsterAI : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(1f); // Cooldown
+        yield return new WaitForSeconds(1.2f); // Full attack cooldown
+
+        animator.SetBool("attack", false);
         isAttacking = false;
     }
 }
