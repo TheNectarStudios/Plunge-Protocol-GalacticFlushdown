@@ -4197,11 +4197,8 @@ MonoBehaviour:
   fov: 60
   invertCamera: 0
   cameraCanMove: 1
-  mouseSensitivity: 2
-  maxLookAngle: 50
-  enableCameraSmoothing: 1
-  cameraSmoothing: 10
-  mouseSmoothingFactor: 0.3
+  mouseSensitivity: 2.83
+  maxLookAngle: 83
   lockCursor: 1
   crosshair: 1
   crosshairImage: {fileID: 21300000, guid: be4ce60e2c9768c44b9b10b9c5258045, type: 3}
@@ -4240,7 +4237,6 @@ MonoBehaviour:
   joint: {fileID: 4121758114445387190}
   bobSpeed: 10
   bobAmount: {x: 0, y: 0.1, z: 0}
-  headBobSmoothing: 0.5
 --- !u!1 &8189512500076941046
 GameObject:
   m_ObjectHideFlags: 0
