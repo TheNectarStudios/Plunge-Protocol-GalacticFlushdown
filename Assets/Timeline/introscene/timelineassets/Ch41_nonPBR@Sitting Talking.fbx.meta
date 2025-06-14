@@ -1,39 +1,9 @@
 fileFormatVersion: 2
-guid: 9a6ab4b6875d40945b3b4f11ef13ee3e
+guid: 2d8c2e2c8c3e6084387037d383b4cd16
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch41_1001_Diffuse
-    second: {fileID: 2800000, guid: 6b4e72b1a7316a441bfabf3cf41700c1, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch41_1001_Glossiness
-    second: {fileID: 2800000, guid: cb8a0a8850819fb43a1bd21f7f8f0c20, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch41_1001_Normal
-    second: {fileID: 2800000, guid: 5d82d8aa78e1cf24b83d8ca5922e369a, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch41_1001_Specular
-    second: {fileID: 2800000, guid: a35b0c497151bbb489e7662156ed8fde, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch41_1002_Diffuse
-    second: {fileID: 2800000, guid: b6f0794ec872cd442b9d6b25c8de1ab2, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch41_1002_Normal
-    second: {fileID: 2800000, guid: 0f1546c2ddfe2ca438fff866dad5cab3, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -61,7 +31,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Sitting Talking
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -107,9 +106,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 2d8c2e2c8c3e6084387037d383b4cd16
-  - eea09c0d71fe6ae49b5641399880e962
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
